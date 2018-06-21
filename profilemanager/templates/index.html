@@ -1,0 +1,247 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+		{% block title %}
+
+		{% endblock %}
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<!-- Bootstrap --> 
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/mystyle.css' %}" rel="stylesheet">
+<script src="{% static 'js/jquery-2.1.4.js' %}"></script>
+
+<style>
+.dropdown{
+	float:right;
+	margin-top:7px;
+}
+#downloadbtn{
+	width:150px;
+	height:40px;
+	border-radius:10px;
+}
+.mycaro{
+	width:100%;
+	height:500px;
+}
+.down{
+	position:fixed;
+	top:90%;
+	width:90%;
+}
+.down2{
+	position:fixed;
+	top:96%;
+	width:90%;
+}
+.downinner{
+	 height:70px;
+	 background-color:#D21D1D;
+	 font-size:30px;
+	 text-align:center;
+	 color:white;
+	 z-index:999;
+}
+.downsmall{
+	 height:30px;
+	 background-color:#D21D1D;
+	  font-size:20px;
+	 text-align:center;
+	 color:white;
+	 z-index:999;
+}
+#scr{
+	width:100px;
+	height:100px;
+	overflow-y:auto;
+}
+.doshow{
+	height:100px;
+}
+.dohide{
+	height:10px;
+}
+#mydown,#holder,#mybanner{
+	transition:all 1s;
+	-moz-transition:all 1s;
+	-webkit-transition:all 1s;
+	-o-transition:all 1s;
+}
+.bRadius{
+	border-radius:none;
+}
+.bRadius2{
+	border-radius:25px;
+}
+.floatr{
+	float:right;
+}
+.floatl{
+	float:left;
+}
+li{
+	display: inline;
+	list-style: none;
+	padding-left:5px;
+	padding-top:10px;  
+}
+a{
+	color: white;
+}
+a:hover{
+	color:azure;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function(e) {
+	
+	setInterval(loadtext,3000);
+	setInterval(animate,2000);
+	
+	
+  $(document).on("scroll",function(){
+	  if($(document).scrollTop()>30){
+		  $("#mybanner").removeClass("doshow").addClass("dohide");
+	  }
+	  else{
+		   $("#mybanner").removeClass("dohide").addClass("doshow");
+	  }
+	if($(document).scrollTop()>300){
+		$("#mydown").removeClass("downinner").addClass("downsmall");
+		$("#holder").removeClass("down").addClass("down2");
+	}else{
+		$("#mydown").removeClass("downsmall").addClass("downinner");
+		$("#holder").removeClass("down2").addClass("down");
+	}
+});
+});
+
+var i=0;
+
+function loadtext(){
+	var words=["Welcome to Profile manager",
+	"Update your profile for easy promotion",
+	"Easy and relaibale way of managing profile",
+	"Stress free and reduced fear of loss",
+	"Have evrything in a safe place and easily accessible by your boss"];
+	if(i<words.length){
+	document.getElementById("mydown").innerHTML=words[i];
+	i++;
+	}else{
+		i=0;
+	}
+}
+var j=0;
+function animate(){
+	if(j==0){
+	$("#aniImage").removeClass("bRadius").addClass("bRadius2");
+	$("#aniImage2").removeClass("floatr").addClass("floatl");
+	j=1;
+	}
+	else{
+		$("#aniImage").removeClass("bRadius2").addClass("bRadius");
+		$("#aniImage2").removeClass("floatl").addClass("floatr");
+		j=0;
+	}
+}
+</script>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-sm-12" id="navbar">
+<div class="row">
+
+<div style="width:35%; float:right; margin-right:10px;">
+<ul>
+	<li><a href="list" class="mylinks">Show names</a></li>
+	<li><a href="add" class="mylinks">Add names</a></li>
+</ul>
+</div>
+<div style="width:60%;">
+<marquee style="font-size:24px; color:white;">Profile Management system</marquee>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row" >
+<div class="col-sm-12 doshow" style="margin-top:60px;" id="mybanner">
+<img src="{% static 'images/banner,png.png' %}" width="100%" height="100%"/>
+</div>
+</div>
+
+<div class="row">
+		<div class"col-sm-12" style=" height:500px; margin:15px; margin-top:20px; margin-bottom:200px;" id="images">
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
+				  <!-- Indicators -->
+					  <ol class="carousel-indicators">
+							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				
+					  </ol>
+		
+					  <!-- Wrapper for slides -->
+					  <div class="carousel-inner" >
+						<div class="item active">
+							  <img src="{% static 'images/image1.jpg' %}" alt="reading" class="mycaro" style="height:400px;" >
+			
+						</div>
+						<div class="item">
+						  <img src="{% static 'images/image2.jpg' %}" alt="..." class="mycaro" style="height:400px;">
+						
+					</div>
+	
+					
+				  </div>
+		
+		  <!-- Controls -->
+		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		  </a>
+		  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		  </a>
+		</div> 
+		
+		</div>
+		</div>
+
+
+<div class="row" style="background-color:#093F07; border-top-left-radius:20px;border-top-right-radius:20px;">
+		<div class="col-lg-6" style="">
+		<div class="row">
+		<div class="col-sm-6" style="padding:20px; text-align:center; height:300px;"></div>
+		<div class="col-sm-6" style="padding:20px;">
+		<ul id="footernav" style="list-style:none; color:white;">
+			<li><a href="list">Show names</a></li>
+			<li><a href="add">Add names</a></li>
+		  </ul>
+		</div>
+		</div>
+		</div>
+		<div class="col-lg-6">
+		<div class="row">
+		<div class="col-sm-6" style="margin-bottom:70px;">
+		<h3 style="color:yellow;">PROFILE MANAGER</h3>
+		
+		</div>
+		
+		</div>
+		</div>
+		</div>
+		<div class="row down" id="holder">
+		<div class="col-sm-12 downinner" id="mydown" style="z-index:10000;"></div>
+		</div>
+		</div>
+		
+		</div>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		</body>
+		</html>
+
+

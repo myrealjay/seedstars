@@ -1,0 +1,24 @@
+{% extends 'index2.html' %}
+{% block title %}
+Profile Manager Listings
+{% endblock %}
+
+
+{% block content %}
+<div class="row" style="margin-bottom:100px; margin-top:50px;">
+        <h4 style="text-align:center; color:darkgreen; font-weight:bold;">LIST OF NAMES AND EMAIL ADDRESSES</h4>
+
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+<table style="border:none;">
+{% for Profile in profile %}
+<tr>
+    <td style=";padding-right:3px;"><strong>{{Profile.name}}</strong></td>
+    <td> {{ Profile.email }}</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+
+</div>
+{% endblock %}

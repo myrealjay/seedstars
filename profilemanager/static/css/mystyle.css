@@ -1,0 +1,36 @@
+body{
+	
+}
+p{
+	font-size:18px;
+	text-align:justify;
+}
+.container{
+	width:90%;
+	box-shadow: 0px 15px 10px 10px #BBF1CA inset;
+	overflow:auto;
+}
+#navbar{
+	height:50px;
+	background-color:#0B6926;
+	width:90%;
+	position:fixed;
+	z-index:20;
+}
+li{
+	display: inline;
+	list-style: none;
+}
+
+.mylinks{
+	color:white;
+}
+.mylinks:hover{
+	color:#C4E6CD;
+}
+#footernav >li a{
+	color:white;
+}
+#footernav >li{
+	padding:2px;
+}
